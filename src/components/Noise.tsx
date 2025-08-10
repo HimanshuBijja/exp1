@@ -1,7 +1,7 @@
 export default function Co() {
     return (
-        <div className="overflow-hidden">
-          
+        <div>
+            <h1>Co</h1>
         </div>
     );
 }

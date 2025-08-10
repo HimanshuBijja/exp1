@@ -7,7 +7,7 @@ export default function Test() {
     return (
         <>
         <div className="flex flex-col   ">
-            <LiquidEffect />
+            {/* <LiquidEffect /> */}
             {/* <Cloud /> */}
         </div>
         </>
