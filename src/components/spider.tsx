@@ -65,7 +65,9 @@ export default function Spider() {
         };
         
         window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
     }, []);
 
     const getCircleStyle = (circle: Circle): React.CSSProperties => {
@@ -103,12 +105,18 @@ export default function Spider() {
             pointerEvents: "none" as const
         };
     };
+    const handleMouseLeave = (): void => {
+        // Move mouse position outside interaction range when cursor leaves
+        setMousePosition({ x: -1000, y: -1000 });
+    };
+
 
     return (
         <div 
             ref={containerRef}
             className="relative min-h-screen w-full bg-gray-900 overflow-hidden "
             onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
         >
             {/* Background gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800" />
